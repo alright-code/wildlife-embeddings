@@ -1,6 +1,5 @@
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 
 # Losses from https://github.com/WildMeOrg/wbia-plugin-pie-v2/tree/main/wbia_pie_v2/losses
 class CrossEntropyLoss(nn.Module):
