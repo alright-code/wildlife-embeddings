@@ -24,7 +24,7 @@ def main():
     args.gpus = 1
     trainer = pl.Trainer.from_argparse_args(args)
 
-    trainer.test(model, datamodule=dm)
+    trainer.validate(model, datamodule=dm)
 
 
 if __name__ == "__main__":
