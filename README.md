@@ -12,7 +12,7 @@ A csv file should be created for your dataset with the following columns:
 - `y`: top bounding box coordinate
 - `w`: bounding box width
 - `h`: bounding box height
-`- theta`: rotation of the bounding box
+- `- theta`: rotation of the bounding box
 
 ## Training
 During training we evaluate the model on the validation data every two epochs and retain the checkpoint with the highest 1-vs-all top1 accuracy.
