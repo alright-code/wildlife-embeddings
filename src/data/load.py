@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+import os
 
 import pandas as pd
 
@@ -37,9 +38,10 @@ class CSVLoader(Loader):
     def load_data(self):
         data_df = pd.read_csv(self.data_file)
 
-        data_df["image"] = [
-            f"{self.data_dir}/_ibsdb/images/{im}" for im in data_df["image"]
-        ]
+        if self.data_dir:
+            data_df["image"] = [
+                os.path.join(self.data_dir, im) for im in data_df["image"]
+            ]
 
         return data_df
 
@@ -49,6 +51,6 @@ class CSVLoader(Loader):
             parents=[parent_parser], add_help=False, allow_abbrev=False
         )
         parser.add_argument("--data-file", required=True)
-        parser.add_argument("--data-dir", required=True)
+        parser.add_argument("--data-dir", required=False)
 
         return parser

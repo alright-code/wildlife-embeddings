@@ -116,7 +116,7 @@ class ResNet50EmbeddingModule(pl.LightningModule):
                 monitor="top1",
                 mode="max",
                 filename="{epoch}-{top1:.2f}",
-                every_n_val_epochs=2,
+                every_n_epochs=2,
             ),
             FixBase(self.fixbase_epoch),
         ]
