@@ -1,7 +1,7 @@
 import math
 
 import pandas as pd
-from PIL import Image
+from PIL import Image, ImageOps
 from torch.utils.data import Dataset
 from torchvision.transforms import functional as F
 
@@ -39,7 +39,7 @@ class DFDataset(Dataset):
         label = self.labels[idx]
 
         with open(img_path, "rb") as f:
-            img = Image.open(f)
+            img = ImageOps.exif_transpose(Image.open(f))
             img.load()
 
         img = img.crop((x, y, min(x + w, img.width), min(y + h, img.height)))
