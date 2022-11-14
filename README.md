@@ -26,24 +26,24 @@ During training we evaluate the model on the validation data every two epochs an
 - `--data-dir`: path to the image directory
 - `--eval-cutoff`: training is done with individuals with > eval-cutoff encounters, the rest are used for validation/testing
 
-- `--image-size`: input image size
-- `--train-transforms`: data augmentation for training, see `src/data/transforms.py`
-- `--eval-transforms`: data augmentation for validation/testing
-- `--num-copies`: see `src/data/sampler.py`
-- `--num-instances`: see `src/data/sampler.py`
-- `--batch-size`: batch size per gpu
-- `--num-workers`: number of dataloader workers
+- `--image-size`: input image size (256)
+- `--train-transforms`: data augmentation for training, see `src/data/transforms.py` (resize, affine, color_jitter, grayscale, blur, center_crop, normalize)
+- `--eval-transforms`: data augmentation for validation/testing (resize, center_crop, normalize)
+- `--num-copies`: see `src/data/sampler.py` (4)
+- `--num-instances`: see `src/data/sampler.py` (4)
+- `--batch-size`: batch size per gpu (64)
+- `--num-workers`: number of dataloader workers (8)
 
-- `--embedding-dim`: output embedding size
-- `--lr`: learning rate
-- `--wd`: weight decay
-- `--fixbase-epoch`: freeze the weights of the model excluding fully-connected layers for this many epochs during training
+- `--embedding-dim`: output embedding size (512)
+- `--lr`: learning rate (1e-5)
+- `--wd`: weight decay (5e-4)
+- `--fixbase-epoch`: freeze the weights of the model excluding fully-connected layers for this many epochs during training (1)
 
-- `--margin`: triplet loss margin
-- `--weight-t`: triplet loss weight
-- `--weight-x`: cross-entropy loss weight
+- `--margin`: triplet loss margin (0.3)
+- `--weight-t`: triplet loss weight (1.0)
+- `--weight-x`: cross-entropy loss weight (1.0)
 
-- `--gpus`: number of gpus
+- `--gpus`: number of gpus 
 - `--max_epochs`: maximum number of epochs
 
 Also included are all the pytorch-lightning trainer flags: https://pytorch-lightning.readthedocs.io/en/latest/api/pytorch_lightning.trainer.trainer.Trainer.html#pytorch_lightning.trainer.trainer.Trainer
